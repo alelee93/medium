@@ -1,0 +1,16 @@
+<%= render partial: "posts/post", locals: {post: @post}%>
+
+<p> <%= @post.comments.count%> comments </p>
+<%= render partial: "comments/form", locals: {comment: @comment, post: @post, user: @user}%>
+
+<% @post.comments.each do |post_comment| %>
+    <%= render partial: "comments/comment", locals: {comment: post_comment} %>
+    <% if post_comment.user_id == @user.id %>
+        <%= link_to "Edit", edit_post_comment_path(@post.id, post_comment.id)%>
+        <%= button_to('Destroy', post_comment_path(@post.id, post_comment), method: "delete") %>
+    <% end %>
+    <br>
+    <br>
+<% end %>
+
+

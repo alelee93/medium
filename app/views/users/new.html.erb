@@ -1,0 +1,36 @@
+<h1> Welcome to Medium </h1>
+<p> Get smarter about what matters to you. </p>
+
+<%= form_for @user, url: users_path, method: :post do |f| %>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2> Whoops, <%= pluralize(@user.errors.count, "error")%> found:</h2>
+        <ul> 
+            <% @user.errors.full_messages.each do |message| %>
+                <li> <%= message %> </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <%= f.submit "Sign Up" %>
+<% end %>
+
+<p> Already a member?  <%= link_to "Log in", login_path%></p>
+<p> or <%= link_to "Log in with Google", "/auth/google_oauth2" %></p>

@@ -1,0 +1,10 @@
+<h2><%= link_to post.title, post_path(post)%></h2>
+<p> by <%= link_to post.author, user_posts_path(post.user_id) %></p>
+<% if post.tags.count > 0 %>
+    Tags: <%post.tags.each do |t|%>
+     <%= t.name %>
+    <% end %>
+<% end %>
+<br>
+<p><%= post.content %></p>
+<br>

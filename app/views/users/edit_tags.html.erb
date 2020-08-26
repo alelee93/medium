@@ -1,0 +1,9 @@
+<h1><%=@user.name%>'s Preferences </h1>
+
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'update_tags')  do |f|%>
+    <br>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+    <br>
+    <%= f.submit "Save"%>
+    <br>
+<% end %>

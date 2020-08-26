@@ -1,0 +1,13 @@
+<%= form_for(post) do |f| %>
+    <%= f.hidden_field :user_id, value: user.id %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.text_field :all_tags, placeholder: "Tags separated with comma"%>
+    <br>
+    <%= f.submit "Save" %>
+<% end %>
+

@@ -1,0 +1,17 @@
+<h1> Welcome to Medium </h1>
+<p> Get smarter about what matters to you. </p>
+
+
+
+<%= form_for @user, url: login_path, method: :post do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit "Log in" %>
+<% end %>
+
+<p> or <%= link_to "Log in with Google", "/auth/google_oauth2" %></p>
+<p> Not on Medium yet?  <%= link_to "Sign up", signup_path%></p>

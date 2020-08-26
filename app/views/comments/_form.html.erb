@@ -1,0 +1,9 @@
+<%= form_for comment, url: post_comments_path(post) do |f| %>
+   
+    <%= f.text_area :content, placeholder: "What are your thoughts?" %>
+
+    <%= f.hidden_field :user_id, value: user.id %>
+    <%= f.hidden_field :post_id, value: post.id %>
+    <br>
+    <%= f.submit "Save" %>
+<% end %>

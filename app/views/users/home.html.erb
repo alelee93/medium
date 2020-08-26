@@ -1,0 +1,5 @@
+<h1>Welcome to Medium  </h1>
+
+<% Post.all.each do |t| %>
+    <%= render partial: "posts/post", locals: {post: t}%>
+<% end %>
